@@ -17,7 +17,15 @@ import { WebGAL } from '@/Core/WebGAL';
  */
 export const choose = (sentence: ISentence): IPerform => {
   let chooseList = sentence.content.split('|');
-  const chooseListFull = chooseList.map((e) => e.split(':'));
+  // const chooseListFull = chooseList.map((e) => e.split(':'));
+  const chooseListFull = chooseList.map((e) => {
+    const index = e.indexOf(':');
+    if (index === -1) {
+      return [e, ''];
+    } else {
+      return [e.slice(0, index), e.slice(index + 1)];
+    }
+  });
   const fontFamily = webgalStore.getState().userData.optionData.textboxFont;
   const font = fontFamily === textFont.song ? '"思源宋体", serif' : '"WebgalUI", serif';
   const { playSeEnterChoose, playSeClickChoose } = useSEByWebgalStore();

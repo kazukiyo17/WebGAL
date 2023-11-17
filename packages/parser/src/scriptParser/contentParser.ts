@@ -45,8 +45,10 @@ function getChooseContent(contentRaw: string, assetSetter: any): string {
   const chooseKeyList: Array<string> = [];
   const chooseValueList: Array<string> = [];
   for (const e of chooseList) {
-    chooseKeyList.push(e.split(":")[0] ?? "");
-    chooseValueList.push(e.split(":")[1] ?? "");
+    // chooseKeyList.push(e.split(":")[0] ?? "");
+    // chooseValueList.push(e.split(":")[1] ?? "");
+    chooseKeyList.push(e.slice(0, e.indexOf(":")));
+    chooseValueList.push(e.slice(e.indexOf(":") + 1));
   }
   const parsedChooseList = chooseValueList.map((e) => {
     if (e.match(/\./)) {
