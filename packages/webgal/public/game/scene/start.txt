@@ -1,3 +1,2 @@
-setVar:heroine=WebGAL;
-setVar:egine=WebGAL;
-choose:简体中文:https://raw.githubusercontent.com/kazukiyo17/webgaldemo/master/game/scene/demo_en.txt|日本語:demo_ja.txt|English:demo_en.txt|Lip Sync Animation Test:demo_animation.txt | Variable interpolation test:demo_var.txt;
+
+changeScene:https://fake-buddha-1300084664.cos.ap-shanghai.myqcloud.com/scene%2F491213694122852611.txt;
