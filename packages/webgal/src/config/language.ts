@@ -24,9 +24,9 @@ export enum language {
 
 const languages: Record<string, string> = {
   zhCn: '中文',
-  en: 'English',
-  jp: '日本語',
-  fr: 'Français',
+  // en: 'English',
+  // jp: '日本語',
+  // fr: 'Français',
 };
 
 export const i18nTranslationResources: Record<string, { translation: Record<string, any> }> = {

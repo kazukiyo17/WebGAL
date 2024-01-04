@@ -6,7 +6,7 @@ import axios from 'axios';
  */
 export const sceneFetcher = async (sceneUrl: string) => {
   let url = sceneUrl;
-  let checkUrl = 'http://localhost:8080/api/v1/game/scene?url=' + sceneUrl;
+  let checkUrl = 'http://172.18.0.5:8081/api/v1/game/scene?url=' + sceneUrl;
   // sceneUrl 如果结果为404，则使用默认场景 end.txt
   try {
     await axios.get(url);

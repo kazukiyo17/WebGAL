@@ -127,17 +127,35 @@ const zhCn = {
     exit: {
       title: '返回',
     },
+    login: {
+      title: '登录',
+      options: {
+        login: '登录',
+        goback: '返回',
+      },
+    },
+    signup: {
+      title: '注册',
+    },
   },
 
   title: {
+    login: {
+      title: '登录',
+      subtitle: 'LOGIN',
+    },
+    signup: {
+      title: '注册',
+      subtitle: 'SIGNUP',
+    },
     start: {
       title: '开始游戏',
       subtitle: 'START',
     },
-    continue: {
-      title: '继续游戏',
-      subtitle: 'CONTINUE',
-    },
+    // continue: {
+    //   title: '继续游戏',
+    //   subtitle: 'CONTINUE',
+    // },
     options: {
       title: '游戏选项',
       subtitle: 'OPTIONS',
