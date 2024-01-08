@@ -28,7 +28,7 @@ export const Login: FC = () => {
   // 发送请求
   const LoginRequest = async () => {
     // POST请求
-    const response = await fetch('http://139.224.35.21:443/login', {
+    const response = await fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

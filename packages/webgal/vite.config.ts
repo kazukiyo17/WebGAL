@@ -57,4 +57,13 @@ export default defineConfig({
       '@': resolve('src'),
     },
   },
+  server: {
+    port: 3000,
+    proxy: {
+      '/login': {
+        target: 'http://139.224.35.21:443',
+        changeOrigin: true,
+      },
+    },
+  },
 });
