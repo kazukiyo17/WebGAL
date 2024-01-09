@@ -7,11 +7,12 @@ import { useDispatch } from 'react-redux';
 import { setVisibility } from '@/store/GUIReducer';
 
 export const Login: FC = () => {
-  const t = useTrans('menu.login.');
+  const t = useTrans('menu.signup.');
   const [error, setError] = useState('');
   const [form, setForm] = useState({
     username: '',
     password: '',
+    confirmPassword: '',
   });
 
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export const Login: FC = () => {
   // 发送请求
   const LoginRequest = async () => {
     // POST请求
-    const response = await fetch('/user/login', {
+    const response = await fetch('/user/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,6 +60,10 @@ export const Login: FC = () => {
     }
   };
 
+  const handleChangeConfirmPassword = (value: string) => {
+    setForm({ ...form, confirmPassword: value });
+  };
+
   return (
     <div className={styles.Options_main}>
       <div className={styles.Options_top}>
@@ -80,8 +85,15 @@ export const Login: FC = () => {
             value={form.password}
             onChange={handleChangePassword}
           />
+          <NormalInput
+            title="确认密码"
+            placeholder="数字+字符不少于8字符"
+            value={form.confirmPassword}
+            onChange={handleChangeConfirmPassword}
+          />
+          {form.password !== form.confirmPassword && <div className={styles.Login_error}>两次密码不一致</div>}
           {error && <div className={styles.Login_error}>{error}</div>}
-          <NormalButton textList={[t('options.login')]} functionList={[handleSubmit]} currentChecked={1} />
+          <NormalButton textList={[t('options.signup')]} functionList={[handleSubmit]} currentChecked={1} />
         </div>
       </form>
     </div>

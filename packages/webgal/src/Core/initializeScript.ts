@@ -28,16 +28,16 @@ export const initializeScript = (): void => {
   logger.info('Made with ❤ by MakinoharaShoko');
   // 激活强制缩放
   // 在调整窗口大小时重新计算宽高，设计稿按照 1600*900。
-  if (isIOS) {
-    /**
-     * iOS
-     */
-    alert(
-      `iOS 用户请横屏使用以获得最佳体验
-| Please use landscape mode on iOS for the best experience
-| iOS ユーザーは横画面での使用をお勧めします`,
-    );
-  }
+  //   if (isIOS) {
+  //     /**
+  //      * iOS
+  //      */
+  //     alert(
+  //       `iOS 用户请横屏使用以获得最佳体验
+  // | Please use landscape mode on iOS for the best experience
+  // | iOS ユーザーは横画面での使用をお勧めします`,
+  //     );
+  //   }
 
   // 获得 userAnimation
   loadStyle('./game/userStyleSheet.css');

@@ -136,6 +136,9 @@ const zhCn = {
     },
     signup: {
       title: '注册',
+      options: {
+        signup: '确认注册',
+      },
     },
   },
 

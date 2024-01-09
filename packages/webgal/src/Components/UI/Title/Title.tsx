@@ -60,7 +60,7 @@ const Title: FC = () => {
               onMouseEnter={playSeEnterTitleButton}
             >
               <div className={styles.Title_button_text + ' ' + styles.Title_button_text_up}>{t('login.title')}</div>
-              {/* <div className={styles.Title_button_text}>{t('start.subtitle')}</div> */}
+              <div className={styles.Title_button_text}>{t('login.subtitle')}</div>
             </div>
             <div
               className={styles.Title_button}
@@ -71,7 +71,7 @@ const Title: FC = () => {
               onMouseEnter={playSeEnterTitleButton}
             >
               <div className={styles.Title_button_text + ' ' + styles.Title_button_text_up}>{t('signup.title')}</div>
-              {/* <div className={styles.Title_button_text}>{t('start.subtitle')}</div> */}
+              <div className={styles.Title_button_text}>{t('signup.subtitle')}</div>
             </div>
             <div
               className={styles.Title_button}
@@ -82,7 +82,7 @@ const Title: FC = () => {
               onMouseEnter={playSeEnterTitleButton}
             >
               <div className={styles.Title_button_text + ' ' + styles.Title_button_text_up}>{t('start.title')}</div>
-              {/* <div className={styles.Title_button_text}>{t('start.subtitle')}</div> */}
+              <div className={styles.Title_button_text}>{t('start.subtitle')}</div>
             </div>
             {/* <div
               className={styles.Title_button}
