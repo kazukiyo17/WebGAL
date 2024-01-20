@@ -15,9 +15,10 @@ export const subSceneScanner = (command: commandType, content: string): Array<st
     // const chooseValue = chooseList.map((e) => e.split(":")[1] ?? "");
     const chooseValue = chooseList.map((e) => e.slice(e.indexOf(":") + 1));
     chooseValue.forEach((e) => {
-      if (e.match(/\./)) {
-        subSceneList.push(e);
-      }
+      subSceneList.push(e);
+      // if (e.match(/\./)) {
+      //   subSceneList.push(e);
+      // }
     });
   }
   return subSceneList;

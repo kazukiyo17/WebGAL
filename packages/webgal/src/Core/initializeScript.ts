@@ -4,7 +4,8 @@
 import { logger } from './util/etc/logger';
 import { infoFetcher } from './util/coreInitialFunction/infoFetcher';
 import { assetSetter, fileType } from './util/gameAssetsAccess/assetSetter';
-import { sceneFetcher } from './controller/scene/sceneFetcher';
+// import { sceneFetcher } from './controller/scene/sceneFetcher';
+import { sceneFetcherNew } from './controller/scene/sceneFetcherNew';
 import { sceneParser } from './parser/sceneParser';
 import { bindExtraFunc } from '@/Core/util/coreInitialFunction/bindExtraFunc';
 import { webSocketFunc } from '@/Core/util/syncWithEditor/webSocketFunc';
@@ -48,7 +49,7 @@ export const initializeScript = (): void => {
   // 获取start场景
   const sceneUrl: string = assetSetter('start.txt', fileType.scene);
   // 场景写入到运行时
-  sceneFetcher(sceneUrl).then((rawScene) => {
+  sceneFetcherNew(sceneUrl).then((rawScene) => {
     WebGAL.sceneManager.sceneData.currentScene = sceneParser(rawScene, 'start.txt', sceneUrl);
     // 开始场景的预加载
     const subSceneList = WebGAL.sceneManager.sceneData.currentScene.subSceneList;

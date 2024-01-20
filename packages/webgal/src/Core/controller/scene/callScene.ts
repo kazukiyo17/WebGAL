@@ -1,4 +1,4 @@
-import { sceneFetcher } from './sceneFetcher';
+import { sceneFetcherNew } from './sceneFetcherNew';
 import { sceneParser } from '../../parser/sceneParser';
 import { logger } from '../../util/etc/logger';
 import { nextSentence } from '@/Core/controller/gamePlay/nextSentence';
@@ -20,7 +20,18 @@ export const callScene = (sceneUrl: string, sceneName: string) => {
     continueLine: WebGAL.sceneManager.sceneData.currentSentenceId,
   });
   // 场景写入到运行时
-  sceneFetcher(sceneUrl).then((rawScene) => {
+  // sceneFetcher(sceneUrl).then((rawScene) => {
+  //   WebGAL.sceneManager.sceneData.currentScene = sceneParser(rawScene, sceneName, sceneUrl);
+  //   WebGAL.sceneManager.sceneData.currentSentenceId = 0;
+  //   // 开始场景的预加载
+  //   const subSceneList = WebGAL.sceneManager.sceneData.currentScene.subSceneList;
+  //   WebGAL.sceneManager.settledScenes.push(sceneUrl); // 放入已加载场景列表，避免递归加载相同场景
+  //   const subSceneListUniq = uniqWith(subSceneList); // 去重
+  //   scenePrefetcher(subSceneListUniq);
+  //   logger.debug('现在调用场景，调用结果：', WebGAL.sceneManager.sceneData);
+  //   nextSentence();
+  // });
+  sceneFetcherNew(sceneUrl).then((rawScene) => {
     WebGAL.sceneManager.sceneData.currentScene = sceneParser(rawScene, sceneName, sceneUrl);
     WebGAL.sceneManager.sceneData.currentSentenceId = 0;
     // 开始场景的预加载

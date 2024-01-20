@@ -5,6 +5,7 @@ import { Save } from './SaveAndLoad/Save/Save';
 import { Load } from './SaveAndLoad/Load/Load';
 import { Options } from './Options/Options';
 import { Login } from './Login';
+import { Signup } from './Signup';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { MenuPanelTag } from '@/store/guiInterface';
@@ -35,7 +36,7 @@ const Menu: FC = () => {
       // menuBgColor = 'linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)';
       break;
     case MenuPanelTag.Signup:
-      currentTag = <div>注册</div>;
+      currentTag = <Signup />;
       // menuBgColor = 'linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)';
       break;
   }

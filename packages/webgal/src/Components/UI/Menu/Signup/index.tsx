@@ -6,7 +6,7 @@ import { NormalButton } from './NormalButton';
 import { useDispatch } from 'react-redux';
 import { setVisibility } from '@/store/GUIReducer';
 
-export const Login: FC = () => {
+export const Signup: FC = () => {
   const t = useTrans('menu.signup.');
   const [error, setError] = useState('');
   const [form, setForm] = useState({

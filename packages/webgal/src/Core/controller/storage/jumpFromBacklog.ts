@@ -1,5 +1,5 @@
 import { logger } from '../../util/etc/logger';
-import { sceneFetcher } from '../scene/sceneFetcher';
+import { sceneFetcherNew } from '../scene/sceneFetcherNew';
 import { sceneParser } from '../../parser/sceneParser';
 import { IStageState } from '@/store/stageInterface';
 import { webgalStore } from '@/store/store';
@@ -33,7 +33,19 @@ export const jumpFromBacklog = (index: number) => {
   const backlogFile = WebGAL.backlogManager.getBacklog()[index];
   logger.debug('读取的backlog数据', backlogFile);
   // 重新获取并同步场景状态
-  sceneFetcher(backlogFile.saveScene.sceneUrl).then((rawScene) => {
+  // sceneFetcher(backlogFile.saveScene.sceneUrl).then((rawScene) => {
+  //   WebGAL.sceneManager.sceneData.currentScene = sceneParser(
+  //     rawScene,
+  //     backlogFile.saveScene.sceneName,
+  //     backlogFile.saveScene.sceneUrl,
+  //   );
+  //   // 开始场景的预加载
+  //   const subSceneList = WebGAL.sceneManager.sceneData.currentScene.subSceneList;
+  //   WebGAL.sceneManager.settledScenes.push(WebGAL.sceneManager.sceneData.currentScene.sceneUrl); // 放入已加载场景列表，避免递归加载相同场景
+  //   const subSceneListUniq = uniqWith(subSceneList); // 去重
+  //   scenePrefetcher(subSceneListUniq);
+  // });
+  sceneFetcherNew(backlogFile.saveScene.sceneUrl).then((rawScene) => {
     WebGAL.sceneManager.sceneData.currentScene = sceneParser(
       rawScene,
       backlogFile.saveScene.sceneName,

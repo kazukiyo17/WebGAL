@@ -1,6 +1,6 @@
 import { resetStage } from '@/Core/controller/stage/resetStage';
 import { assetSetter, fileType } from '@/Core/util/gameAssetsAccess/assetSetter';
-import { sceneFetcher } from '@/Core/controller/scene/sceneFetcher';
+import { sceneFetcherNew } from '@/Core/controller/scene/sceneFetcherNew';
 import { sceneParser } from '@/Core/parser/sceneParser';
 import { logger } from '../etc/logger';
 import { webgalStore } from '@/store/store';
@@ -18,7 +18,14 @@ export const syncWithOrigine = (sceneName: string, sentenceId: number) => {
   // 重新获取初始场景
   const sceneUrl: string = assetSetter(sceneName, fileType.scene);
   // 场景写入到运行时
-  sceneFetcher(sceneUrl).then((rawScene) => {
+  // sceneFetcher(sceneUrl).then((rawScene) => {
+  //   WebGAL.sceneManager.sceneData.currentScene = sceneParser(rawScene, 'start.txt', sceneUrl);
+  //   // 开始快进到指定语句
+  //   const currentSceneName = WebGAL.sceneManager.sceneData.currentScene.sceneName;
+  //   WebGAL.gameplay.isFast = true;
+  //   syncFast(sentenceId, currentSceneName);
+  // });
+  sceneFetcherNew(sceneUrl).then((rawScene) => {
     WebGAL.sceneManager.sceneData.currentScene = sceneParser(rawScene, 'start.txt', sceneUrl);
     // 开始快进到指定语句
     const currentSceneName = WebGAL.sceneManager.sceneData.currentScene.sceneName;

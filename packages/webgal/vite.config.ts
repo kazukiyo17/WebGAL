@@ -61,7 +61,11 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/user': {
-        target: 'http://139.224.35.21',
+        target: 'http://localhost:8081',
+        changeOrigin: true,
+      },
+      '/api': {
+        target: 'http://localhost:8081',
         changeOrigin: true,
       },
     },

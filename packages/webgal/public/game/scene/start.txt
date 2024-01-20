@@ -1,2 +1,16 @@
 
-changeScene:https://fake-buddha-1300084664.cos.ap-shanghai.myqcloud.com/scene%2F491213694122852611.txt;
+intro:你好|欢迎进入 我 的世界;
+changeBg:https://fake-buddha-1300084664.cos.ap-shanghai.myqcloud.com/image%2F492061086523064580.jpg -next;
+changeFigure:me.jpg -right -enter=enter-from-right -next;
+:我坐在昏暗的办公室里，周围堆满了各种杂志和稿件;
+:窗外的城市灯火辉煌，但我却无暇欣赏。
+:我是一家三流杂志的记者，生活平淡而乏味。
+:然而，这一天，一封匿名信打破了我平静的生活。
+我:周远山？那个知名富商？在偏远村庄藏着重大秘密？这怎么可能……
+同事:怎么了，一脸震惊的样子？捡到宝了？
+我:我收到一封匿名信，说本市的富商周远山在某个偏远村庄隐藏着重大秘密。
+同事:真的假的？那可是周远山啊，他的任何风吹草动都是新闻啊！你打算怎么做？
+我:我想去那个村庄看看，也许能挖出一些独家新闻。
+同事:你一个人去？那地方不仅偏远，而且就凭一封匿名信，风险也太大了吧。万一这是个陷阱呢？
+我:如果这是个机会，我不能错过
+choose:我决定独自前往，无论前方有多少困难:/api/v1/game/startScene?chooseId=1|尝试探探周远山的口风:/api/v1/game/startScene?chooseId=2;

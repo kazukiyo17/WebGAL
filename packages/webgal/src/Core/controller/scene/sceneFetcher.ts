@@ -5,20 +5,17 @@ import axios from 'axios';
  * @param sceneUrl 场景文件路径
  */
 export const sceneFetcher = async (sceneUrl: string) => {
-  let url = sceneUrl;
-  let checkUrl = 'http://139.224.35.21:443/api/v1/game/scene?url=' + sceneUrl;
-  // sceneUrl 如果结果为404，则使用默认场景 end.txt
+  console.log('sceneUrl', sceneUrl);
+  let url = './game/scene/end.txt';
+  let checkUrl = '/api/v1/game/scene?url=' + sceneUrl;
   try {
-    await axios.get(url);
-    // 发送get 请求
-    const resp = await axios.get(checkUrl);
-    if (resp.data.message !== 'success') {
-      url = './game/scene/end.txt';
+    const resp = await fetch(checkUrl);
+    if (resp.status === 200) {
+      url = sceneUrl;
     }
   } catch (error) {
-    url = './game/scene/end.txt';
+    console.log(error);
   }
-  console.log('sceneUrl', url);
   return new Promise<string>((resolve) => {
     axios.get(url).then((response) => {
       const rawScene: string = response.data.toString();

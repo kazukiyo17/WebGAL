@@ -66,6 +66,8 @@ const Title: FC = () => {
               className={styles.Title_button}
               onClick={() => {
                 // startGame();
+                dispatch(setVisibility({ component: 'showMenuPanel', visibility: true }));
+                dispatch(setMenuPanelTag(MenuPanelTag.Signup));
                 playSeClickTitleButton();
               }}
               onMouseEnter={playSeEnterTitleButton}
