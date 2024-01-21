@@ -1,12 +1,12 @@
 import axios from 'axios';
+import { logger } from '@/Core/util/etc/logger';
 
 /**
  * 原始场景文件获取函数
  * @param sceneUrl 场景文件路径
  */
 export const sceneFetcherNew = async (sceneUrl: string) => {
-  console.log('sceneFetcherNew', sceneUrl);
-  if (sceneUrl.startsWith('./')) {
+  if (!sceneUrl.startsWith('/api')) {
     return new Promise<string>((resolve) => {
       axios.get(sceneUrl).then((response) => {
         const rawScene: string = response.data.toString();
@@ -21,14 +21,8 @@ export const sceneFetcherNew = async (sceneUrl: string) => {
       url = resp.data.url;
     }
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
-  // return new Promise<string>((resolve) => {
-  //   axios.get(url).then((response) => {
-  //     const rawScene: string = response.data.toString();
-  //     resolve(rawScene);
-  //   });
-  // });
 
   return new Promise<string>((resolve) => {
     axios.get(url).then((response) => {

@@ -25,7 +25,7 @@ function getTextboxByTheme(theme: IWebGalTextBoxTheme): FC<ITextboxProps> {
 export const TextBox = () => {
   const stageState = useSelector((state: RootState) => state.stage);
   const userDataState = useSelector((state: RootState) => state.userData);
-  useEffect(() => {});
+  useEffect(() => { });
   const textDelay = useTextDelay(userDataState.optionData.textSpeed);
   const textDuration = useTextAnimationDuration(userDataState.optionData.textSpeed);
   let size = getTextSize(userDataState.optionData.textSize) + '%';
@@ -84,8 +84,9 @@ export function splitChars(sentence: string) {
     return regex.test(ch);
   };
 
-  for (const character of sentence) {
-    if (character === '|') {
+  for (let i = 0; i < sentence.length; i++) {
+    const character = sentence[i];
+    if (character === '|' || (i % 35 === 0 && i > 0)) {
       if (word) {
         words.push(word);
         word = '';

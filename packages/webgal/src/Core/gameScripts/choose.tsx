@@ -37,11 +37,17 @@ export const choose = (sentence: ISentence): IPerform => {
         key={e[0] + i}
         onClick={() => {
           playSeClickChoose();
-          if (e[1].match(/\./)) {
+          // 匹配'/api/scene/xxx'
+          if (e[1].match(/^\/api\/.+/)) {
             changeScene(e[1], e[0]);
           } else {
             jmp(e[1]);
           }
+          // if (e[1].match(/\./)) {
+          //   changeScene(e[1], e[0]);
+          // } else {
+          //   jmp(e[1]);
+          // }
           WebGAL.gameplay.performController.unmountPerform('choose');
         }}
         onMouseEnter={playSeEnterChoose}
